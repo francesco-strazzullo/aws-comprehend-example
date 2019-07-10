@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "aws-comprehend-example-executor",
+    "name": "aws-comprehend-example",
+    "region": "eu-west-1"
+  },
+  "api": {
+    "id": "nw9zhnsip4",
+    "module": "lambda/api"
+  }
+}
