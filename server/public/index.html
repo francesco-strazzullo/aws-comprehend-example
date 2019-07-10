@@ -1,8 +1,54 @@
 <html>
-    <head>
-        <title>AWS Comprehend</title>
-    </head>
-    <body>
-        <h1>Comprehend</h1>
-    </body>
+
+<head>
+    <title>AWS Comprehend</title>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
+    <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+    <style>
+        .main-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            width: 100%;
+            margin: 10% 0;
+        }
+
+        .bx--form-item {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-form">
+        <div class="bx--form-item">
+            <div class="bx--select">
+                <label for="select-id" class="bx--label">Select Language</label>
+                <div class="bx--select-input__wrapper">
+                    <select id="select-id" class="bx--select-input ">
+                        <option class="bx--select-option" value="en">English</option>
+                        <option class="bx--select-option" value="it">Italian</option>
+                    </select>
+                    <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;"
+                        xmlns="http://www.w3.org/2000/svg" class="bx--select__arrow" width="10" height="6"
+                        viewBox="0 0 10 6" aria-hidden="true">
+                        <path d="M5 6L0 1 .7.3 5 4.6 9.3.3l.7.7z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <div class="bx--form-item">
+            <label for="textarea" class="bx--label">Text to Be analyzed</label>
+            <textarea id="textarea" placeholder="Insert Text here..." rows="5" cols="50"></textarea>
+        </div>
+        <div class="bx--form-item">
+            <button class="bx--btn bx--btn--primary" type="button">Analyze</button>
+        </div>
+        <div data-result></div>
+    </div>
+    <script src="src/index.js" type="module"></script>
+</body>
+
 </html>
