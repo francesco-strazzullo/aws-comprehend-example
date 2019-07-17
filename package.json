@@ -4,7 +4,8 @@
   "description": "A basic aws comprehend project",
   "scripts": {
     "start": "node server",
-    "deploy": "claudia update --version development --profile serverless && git push heroku master"
+    "deploy-lambda":"claudia update --version development --profile serverless",
+    "deploy": "npm run deploy-lambda && git push heroku master"
   },
   "author": "Francesco Strazzullo (francesco.strazzullo86@gmail.com)",
   "license": "MIT",
@@ -16,5 +17,10 @@
     "aws-sdk": "2.490.0",
     "claudia-api-builder": "4.1.2",
     "express": "4.17.1"
+  },
+  "standard": {
+    "globals": [
+      "_"
+    ]
   }
 }

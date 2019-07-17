@@ -14,6 +14,28 @@ const detectSentiment = params => new Promise((resolve, reject) => {
   })
 })
 
+const detectKeyPhrases = params => new Promise((resolve, reject) => {
+  comprehend.detectKeyPhrases(params, (err, data) => {
+    if (err) {
+      reject(err)
+      return
+    }
+
+    resolve(data)
+  })
+})
+
+const detectEntities = params => new Promise((resolve, reject) => {
+  comprehend.detectEntities(params, (err, data) => {
+    if (err) {
+      reject(err)
+      return
+    }
+
+    resolve(data)
+  })
+})
+
 api.get('/', () => 'Working!')
 
 api.post('/analyze', async (r) => {
@@ -22,8 +44,15 @@ api.post('/analyze', async (r) => {
     Text: r.body
   }
 
-  const data = await detectSentiment(params)
-  return data
+  const sentiment = await detectSentiment(params)
+  const phrases = await detectKeyPhrases(params)
+  const entities = await detectEntities(params)
+
+  return {
+    sentiment,
+    phrases,
+    entities
+  }
 })
 
 module.exports = api

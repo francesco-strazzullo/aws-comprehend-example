@@ -2,8 +2,23 @@
 
 <head>
     <title>AWS Comprehend</title>
+    <link rel="shortcut icon" href="https://www.flowing.it/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://www.flowing.it/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="https://www.flowing.it/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.flowing.it/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="https://www.flowing.it/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.flowing.it/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="https://www.flowing.it/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://www.flowing.it/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://www.flowing.it/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.flowing.it/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://www.flowing.it/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://www.flowing.it/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="https://www.flowing.it/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://www.flowing.it/favicon-16x16.png">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/carbon-components/css/carbon-components.min.css">
     <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.14/lodash.min.js"></script>
     <style>
         .main-form {
             display: flex;
@@ -28,8 +43,8 @@
                 <label for="select-id" class="bx--label">Select Language</label>
                 <div class="bx--select-input__wrapper">
                     <select id="select-id" class="bx--select-input ">
-                        <option class="bx--select-option" value="en">English</option>
                         <option class="bx--select-option" value="it">Italian</option>
+                        <option class="bx--select-option" value="en">English</option>
                     </select>
                     <svg focusable="false" preserveAspectRatio="xMidYMid meet" style="will-change: transform;"
                         xmlns="http://www.w3.org/2000/svg" class="bx--select__arrow" width="10" height="6"
@@ -41,13 +56,74 @@
         </div>
         <div class="bx--form-item">
             <label for="textarea" class="bx--label">Text to Be analyzed</label>
-            <textarea id="textarea" placeholder="Insert Text here..." rows="5" cols="50"></textarea>
+            <textarea id="textarea" placeholder="Insert Text here..." rows="10" cols="100"></textarea>
         </div>
         <div class="bx--form-item">
             <button class="bx--btn bx--btn--primary" type="button">Analyze</button>
         </div>
         <div data-result></div>
     </div>
+    <template data-sentiment>
+        <h1>Sentiment is <span data-sentiment-result></span></h1>
+    </template>
+    <template data-phrases-row>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </template>
+    <template data-phrases>
+        <div>
+            <h1>Key Phrases</h1>
+            <section class="bx--data-table_inner-container">
+                <table class="bx--data-table  bx--data-table--sticky-header  ">
+                    <thead>
+                        <tr>
+                            <th>
+                                <span class="bx--table-header-label">Text</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </template>
+    <template data-entites-row>
+        <tr>
+            <td data-bind="Text">
+            </td>
+            <td data-bind="Type">
+            </td>
+            <td data-bind="Score">
+            </td>
+        </tr>
+    </template>
+    <template data-entites>
+        <div>
+            <h1>Entities</h1>
+            <section class="bx--data-table_inner-container">
+                <table class="bx--data-table  bx--data-table--sticky-header  ">
+                    <thead>
+                        <tr>
+                            <th>
+                                <span class="bx--table-header-label">Text</span>
+                            </th>
+                            <th>
+                                <span class="bx--table-header-label">Type</span>
+                            </th>
+                            <th>
+                                <span class="bx--table-header-label">Score</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </template>
     <script src="src/index.js" type="module"></script>
 </body>
 
